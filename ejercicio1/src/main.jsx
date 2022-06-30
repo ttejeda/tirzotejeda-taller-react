@@ -1,54 +1,23 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
+import Header from './components/header'
+import Content from './components/content'
+import Total from './components/total'
 
 const App = () => {
   const course = 'Half Stack application development'
-  const parts = [
-    'Fundamentals of React',
-    'Using props to pass data',
-    'State of a component'
-  ]
-  const exercises = [
-    10,
-    7,
-    14
+
+  const courseInfo = [
+    { key: 'fundamentals', part: 'Fundamentals of React', exercises: 10 },
+    { key: 'props', part: 'Using props to pass data', exercises: 7 },
+    { key: 'state', part: 'State of a component', exercises: 14 },
   ]
 
   return (
     <div>
       <Header course={course} />
-      <Content parts={parts} exercises={exercises}/>
-      <Total exercises={exercises}/>
-    </div>
-  )
-}
-
-const Header = ({course}) => {
-  return (
-    <div>
-      <h1>{course}</h1>
-    </div>
-  )
-}
-
-const Content = ({parts}, {exercises}) => {
-  return (
-    <ul>
-      {parts.map((part, index) => (
-        <li>{part}</li>
-      ))}
-    </ul>
-  )
-}
-
-const Total = ({exercises}) => {
-  let temp = 0;
-  exercises.map(exercise => (
-    temp += exercise
-  ))
-  return (
-    <div>
-      <p>Number of exercises {temp}</p>
+      <Content courseInfo={courseInfo}/>
+      <Total courseInfo={courseInfo}/>
     </div>
   )
 }
