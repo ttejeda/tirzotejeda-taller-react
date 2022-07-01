@@ -8,14 +8,8 @@ function App() {
   const [bad, setBad] = useState(0)
   const incrementBad = () => setBad(bad + 1)
   let all = good + neutral + bad
-  let average = 0
-  if(all > 0){
-    average = (good + (bad * -1)) / all
-  }
-  let positive = 0
-  if(all > 0){
-    positive = (good/all) * 100
-  }
+  let average = (good - bad) / all | 0
+  let positive = (good/all) * 100 | 0
 
   return (
     <div>
