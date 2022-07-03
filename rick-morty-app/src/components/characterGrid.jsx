@@ -9,7 +9,6 @@ const CharacterGrid = () => {
         .then(res => res.json())
         .then(data => {
             setChars(data.results)
-            console.log({chars})
         })
     }, [])
     
